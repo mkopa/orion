@@ -23,7 +23,6 @@ TEST(SerializationAndRebuild, SaveLoadAndRebuild)
     fs::path tmp = fs::temp_directory_path() / "orion_test_db.bin";
     std::error_code ec;
     fs::remove(tmp, ec);
-    fs::remove(tmp.string() + ".hnsw", ec);
 
     const uint32_t dim = 8;
     Config cfg(dim, 4); // small max_elements to force rebuild
@@ -71,7 +70,6 @@ TEST(SerializationAndRebuild, SaveLoadAndRebuild)
 
     // cleanup
     fs::remove(tmp, ec);
-    fs::remove(tmp.string() + ".hnsw", ec);
 }
 
 TEST(Concurrency, ParallelAddAndQuery)
@@ -79,7 +77,6 @@ TEST(Concurrency, ParallelAddAndQuery)
     fs::path tmp = fs::temp_directory_path() / "orion_test_db2.bin";
     std::error_code ec;
     fs::remove(tmp, ec);
-    fs::remove(tmp.string() + ".hnsw", ec);
 
     const uint32_t dim = 16;
     Config cfg(dim, 128);
@@ -124,7 +121,6 @@ TEST(Concurrency, ParallelAddAndQuery)
 
     // cleanup
     fs::remove(tmp, ec);
-    fs::remove(tmp.string() + ".hnsw", ec);
 }
 
 int main(int argc, char **argv) {

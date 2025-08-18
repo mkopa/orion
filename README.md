@@ -1,4 +1,4 @@
- # Orion
+ # Orion - single-file vector DB
 
  ### The SQLite for AI
 

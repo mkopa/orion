@@ -20,7 +20,7 @@ add_executable(orion_tests
 )
 
 target_include_directories(orion_tests PRIVATE ${CMAKE_SOURCE_DIR}/include)
-target_link_libraries(orion_tests PRIVATE orion GTest::gtest_main)
+target_link_libraries(orion_tests PRIVATE orion_core GTest::gtest_main)
 
 # make sure to link threads on linux
 find_package(Threads REQUIRED)
@@ -28,3 +28,5 @@ target_link_libraries(orion_tests PRIVATE Threads::Threads)
 
 include(GoogleTest)
 gtest_discover_tests(orion_tests)
+
+add_test(NAME orion_tests COMMAND orion_tests)

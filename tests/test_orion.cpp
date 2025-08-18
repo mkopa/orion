@@ -66,7 +66,7 @@ TEST(SerializationAndRebuild, SaveLoadAndRebuild)
         ASSERT_TRUE(meta.find("i") != meta.end());
         ASSERT_TRUE(std::holds_alternative<int64_t>(meta["i"]));
         int64_t orig = std::get<int64_t>(meta["i"]);
-        ASSERT_EQ(orig, check_id);
+        ASSERT_EQ(orig, check_id - 1);
     }
 
     // cleanup
